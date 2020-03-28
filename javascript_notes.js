@@ -54,3 +54,10 @@ console.log(colors[0]); // will print "me"
 // adding items to an array 
 people.push("you") // pushes to end of array
 console.log(people) // would print ["me","myself","I","you"]
+
+// array length can be found using .length (also works on string values)
+console.log(colors.length) // will print 4 
+
+
+
+
