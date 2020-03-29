@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Trying out forms</title>
+</head>
+
+<body>
+    <form id="my-js-form">
+        <label for="user-name">What is your name?</label>
+        <input type="text" name="user_name" id="user-name">
+
+        <label for="user-age">What is your age?</label>
+        <input type="number" name="user_age" id="user-age">
+
+        <label for="">What is your Favorite Ice Cream?</label>
+        <input type="text" name="ice_cream" id="ice-cream">
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="user-data">
+        <p id="name"></p>
+        <p id="age"></p>
+        <p id="icecream"></p>
+    </div>
+
+    <script src="user.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
