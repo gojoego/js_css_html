@@ -27,6 +27,7 @@ header{
 }
 
 /* left side of the header */
+
 #header-sidebar{
     width: 40%;
     height: 100%;
@@ -55,6 +56,7 @@ header{
 #header-sidebar-icons ul li {
     list-style-type: none;
 }
+/*removes bullet points*/
 
 #header-sidebar-icons button {
     border: none;
@@ -63,7 +65,7 @@ header{
 
 .svg-wrap{
     height: 100%;
-    margin-right: 10px;
+    margin-right: 7px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -74,6 +76,7 @@ header{
 #header-main{
     width: 60%;
     height: 100%;
+    border: none;
     display: flex;
     justify-content: flex-start;
 }
@@ -94,6 +97,30 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+#header-main ul{
+    display: flex;
+}
+
+#header-main ul li{
+    list-style-type: none;
+}
+
+#header-main-icons button{
+    border: none;
+    background-color: inherit;
+}
+
+#header-main-icons button.svg-wrap{
+    height: 100%;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
+    align-items: center;
+    background: inherit;
 }
 
 #header-main-icons ul {
@@ -175,6 +202,8 @@ space among items in container when size unknown and/or dynamic
     justify-content: center;
 }
 
+/* styles for icon image  */
+
 .img-wrap > img {
     width: 49px;
     height: 49px;
@@ -190,6 +219,7 @@ space among items in container when size unknown and/or dynamic
     align-items: flex-start;
     justify-content: space-around;
 }
+/* space around puts space around the element  */
 
 .message-text-wrap > p {
     margin: 0
@@ -218,6 +248,7 @@ space among items in container when size unknown and/or dynamic
 .main-chat:after {
     content: "";
     background: url('https://web.whatsapp.com/img/bg-chat-tile_9e8a2898faedb7db9bf5638405cf81ae.png');
+    /* pseudo element not actually on page */
     position: absolute;
     opacity: 0.5;
     top:0;
@@ -252,6 +283,9 @@ space among items in container when size unknown and/or dynamic
     position: absolute;
     top: 0;
     right: -10px;
+
+    /* triangle */
+
     width: 0;
     height: 0;
     border: 10px solid transparent;
@@ -277,23 +311,43 @@ space among items in container when size unknown and/or dynamic
     background-color: #ededed;
     display: flex;
     justify-content: space-between;
+
 }
 .message-box .form-wrap {
-    width: 100%;
+    width: 80%;
     height: 90%;
     border-radius: 20px;
     background-color: white;
 
 }
 .message-box .form-wrap form{
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+
+}
+
+#send-message{
     width: 100%;
     height: 100%;
 }
+
+.form-wrap{
+    border-radius: 50%;
+}
+
+#new-message{
+    border-radius: 25%;
+    height: 80%;
+}
+
 input[name="message"]{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    line-height: 10px;
     border: none;
+    border-radius: 20px;
 }
+
 
 
 /* 
