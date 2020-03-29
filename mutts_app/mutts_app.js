@@ -104,17 +104,31 @@ function createPreviewBox() {
 
     // set the innerHTML of p2 equal to the message "Take a Bite Out of Crime"
 
+    p2.innerHTML = "Take a Bite Out of Crime";
+
     // append p1 to the textWrap
+
+    textWrap.appendChild(p1);
 
     // append p2 to the textWrap
 
+    textWrap.appendChild(p2);
+
     // append the textWrap to the previewBox
+
+    previewBox.appendChild(textWrap);
 
     // Create a div element and assign it to a variable called dateWrap
 
+    let dateWrap = document.createElement('div');
+
     // add a class of "date-wrap" to the dateWrap element you just created
 
+    dateWrap.classList.add("date-wrap");
+
     // Create a paragraph element and assign it to a variable called dateP
+
+    
 
     // set the innerHTML of dateP equal to the name "3/25/20"
 
