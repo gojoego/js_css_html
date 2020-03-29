@@ -183,4 +183,59 @@ const double = n => n * 2;
 
 const nums = [1,2,3,4];
 
-let newNums = nums.map(double)
+let newNums = nums.map(double) // result [2, 4, 6, 8]
+// .map higher order function: will iterate over array, 
+// apply function to each iteration, and return new resulting array
+
+nums.forEach(num => console.log(num * 3))
+// .forEach higher order function: each iteration of loop
+// performs (num*3), does not return anything implicitly 
+
+/*
+
+2 ways to write js in html:
+
+-script tags in html doc
+-link to script file (.js)
+
+*/
+
+let paragraphArray = document.querySelectorAll('p');
+// Document Object Model: DOM
+// .querySelectorAll: selects items inside document object 
+// and returns all specified tags ('p' in this case ) on page
+// in the form of an Array
+console.log(paragraphArray)
+// prints Array
+Array.from(paragraphArray).forEach(p => p.style.color = ['purple'])
+// each paragraph in array will become purple 
+
+const createDivElementAndAppend = () => {
+    let divElement = document.createElement('div')
+    // reference document object 
+    // method on document object called .createElement
+    // creating div and saving as variable
+    divElement.classList.add('paragraph-wrap')
+    // lists all classes in element and adds this to DOM
+    // <div class = "paragraph-wrap"></div>
+    let paragraphElement = document.createElement('p');
+    // <div class = "paragraph-wrap"> <p> </p> </div>
+    paragraphElement.innerHTML= "This is a paragraph"
+    // innerHTML: inside of the opening/closing <p> tag
+    divElement.appendChild(paragraphElement)
+    // 
+    // <div class = "paragraph-wrap"> <p> "This is a paragraph" </p> </div>
+
+}
+// pro-tip: make your function names descriptive
+
+/*
+
+appendChild() method:
+-used to create text node as last child of node
+-used for creating new element with some text 
+-then first create text as text node and then append to element
+-then append the element to the document.
+
+*/
+
