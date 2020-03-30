@@ -82,7 +82,7 @@ header{
 }
 
 #header-number{
-    width: 60%;
+    width: 120%;
     height: 100%;
     display: flex;
     justify-content: flex-start;

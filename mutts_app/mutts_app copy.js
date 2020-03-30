@@ -1,4 +1,4 @@
-const createChatBubble = (msg) => {
+const createChatBubble = () => {
 
     let chatBubble = document.createElement('div');
     
@@ -13,29 +13,45 @@ const createChatBubble = (msg) => {
     wrapper.appendChild(chatBubble)
 }
 
-// Create an event listener for when the form is submitted
+/*  this loop will create 10 chat bubbles, with 
+    alternating out and in class added to the bubble */
+// for(let idx = 0; idx < 10;idx++){
+//    if (idx % 2 === 0){
+//         createChatBubble('out')
+//    } else {
+//        createChatBubble('in')
+//    }
+// }
 
-let sendMessage = document.getElementById("send-message");
-sendMessage.addEventListener('submit', function(event){
-    event.preventDefault();
-    // always use for form submission
-    var msg = document.getElementById("new-message").value;
-    console.log(msg)
-    createChatBubble (msg)
-    
-})
-
-
-
+/// Create an event listener for when the form is submitted
 // then, save the user input
 // then, call (invoke) the createChatBubble function
 // pass the user input to the chatbubble creation
 
 
+/*
+ *
+ *
+ * Start of task here:
+ * - you will be creating this block of HTML with the following function createPreviewBox:
+ * 
+ *      <div class="message-preview-box">
+ *          <div class="img-wrap">
+ *              <img src="./images/sirBarksAlot.jpeg" alt="A cute puppy icon">
+ *          </div>
+ *          <div class="message-text-wrap">
+ *              <p>Bark Wharlberg</p>
+ *              <p>I'm baby pok pok forage kinfolk taxidermy actually cornhole</p>
+ *          </div>
+ *          <div class="date-wrap">
+ *              <p>3/12/20</p>
+ *          </div>
+ *      </div>
+ * 
+ *  - Using the comments as a guide, create this chunk of code with JavaScript and add it to the DOM
+ */
 
 function createPreviewBox() {
-
-    console.log("hi");
 
     //Create a div element and assign it to a variable called previewBox
     let previewBox = document.createElement('div');
@@ -60,7 +76,7 @@ function createPreviewBox() {
 
     document.getElementsByTagName("img")[0].setAttribute("src", "alt" )
 
-    // <img src="./daniel_henney.jpg" alt="hawt">
+    // <img src="./daniel_henney.jpg" alt="hot korean">
 
     // append the image to the imageWrap
 
@@ -118,7 +134,7 @@ function createPreviewBox() {
 
     // set the innerHTML of dateP equal to the name "3/25/20"
 
-    dateP.innerHTML = "3/25/20";
+    dateP.innerHTML("3/25/20");
 
     // append dateP to the dateWrap
 
@@ -142,14 +158,3 @@ function createPreviewBox() {
  createPreviewBox()
 
  //Invoke the createPreviewBox function to see it work!
-
-//  1. styling messed up after applying js 
-//  2. createPreviewBox() not working
-//  3. createChatBubble() not working
-/// html file for login, include css and js : form 
-// date object analog clock on codpen.io
-
-//setinterval method 
-/// put together from idea to creation 
-// 
-
