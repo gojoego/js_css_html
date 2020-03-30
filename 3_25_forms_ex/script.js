@@ -1,23 +1,22 @@
 let myForm = document.getElementById("my-js-form");
 
 
-
 myForm.addEventListener('submit', function (event) {
     event.preventDefault();
     
     // data being taken from form
-    let username = document.getElementById("user-name").value;
-    let userage = document.getElementById("user-age").value;
+    let name = document.getElementById("user-name").value;
+    let age = document.getElementById("user-age").value;
     let icecream = document.getElementById("ice-cream").value;
 
     // checking to see if input was logged 
-    console.log(username, userage, icecream)
+    console.log(name, age, icecream)
 
     // document keyword 
     // grabbing input and displaying 
-    // document.getElementById('name').innerHTML = username;
-    // document.getElementById('age').innerHTML = usernage;
-    // document.getElementById('ice-cream').innerHTML = icecream;
+    // document.getElementById('name').innerText = name;
+    // document.getElementById('age').innerText = age;
+    // document.getElementById('ice-cream').innerText = icecream;
 
     let newDiv = document.createElement("div")
 
