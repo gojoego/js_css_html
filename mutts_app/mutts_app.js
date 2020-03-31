@@ -58,7 +58,8 @@ function createPreviewBox() {
     //(hint: google for reference the JS method 'setAttribute')
     // example: document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
 
-    document.getElementsByTagName("img")[0].setAttribute("src", "alt" )
+    image.setAttribute("src", "cristiano_ronaldo.jpg");
+    image.setAttribute("alt","muy caliente");
 
     // <img src="./daniel_henney.jpg" alt="hawt">
 
@@ -82,7 +83,7 @@ function createPreviewBox() {
 
     // set the innerHTML of p1 equal to the name "Mcgruff the Crime Dog"
 
-    p1.innerHTML = "Mcgruff the Crime Dog";
+    p1.innerHTML = "Cristiano Ronaldo";
 
     // Create a second paragraph element and assign it to a variable called p2
 
@@ -90,7 +91,7 @@ function createPreviewBox() {
 
     // set the innerHTML of p2 equal to the message "Take a Bite Out of Crime"
 
-    p2.innerHTML = "Take a Bite Out of Crime";
+    p2.innerHTML = "Oi, bom dia";
 
     // append p1 to the textWrap
 
@@ -118,7 +119,7 @@ function createPreviewBox() {
 
     // set the innerHTML of dateP equal to the name "3/25/20"
 
-    dateP.innerHTML = "3/25/20";
+    dateP.innerHTML = "3/30/20";
 
     // append dateP to the dateWrap
 
