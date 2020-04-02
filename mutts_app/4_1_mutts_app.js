@@ -1,35 +1,3 @@
-// as soon as JS file loads, we run this function to get 
-// all the items for the sidebar
-function getUserChats() {
-    fetch('http://demo.codingnomads.co:8080/muttsapp/users/3/chats')
-        //  info retrieved in the fetch request returns a response
-        //  object. The response object is assigned to parameter in 
-        //  the following method as "response"
-        .then(response => response.json())
-         // response object needs to be turned into JS object for parsing 
-         // that process is above, then result passed to next '.then' method
-        
-        //  The object created in the last step is assigned to "dataObj", 
-        //  then the data object is passed to a function that handles 
-        //  preview box creation
-         .then(dataObj => createPreviewBoxes(dataObj))
-};
-
-getUserChats();
-
-function previewBoxClick(event) {
-    // gets value of "data-chat_id" attribute on clicked element
-    let chatID = event.target.dataset.chat_id;
-    // value of "chatID" passed to this url, to create dynamically 
-    // generated API based on which preview box is clicked
-    fetch('http://demo.codingnomads.co:8080/muttsapp/users/3/chats/' + chatID)
-        // info retrieved in fetch request returns response object.
-        // response object assigned to parameter in following method as "response"
-        .then(response => response.json())
-        .then(dataObj => createChatBubbles(dataObj))
-
-}
-
 const createChatBubble = (msg) => {
 
     let chatBubble = document.createElement('div');
@@ -60,12 +28,6 @@ sendMessage.addEventListener('submit', function(event){
 })
 
 
-
-getUserChats();
-
-//
-
-
 // then, save the user input
 // then, call (invoke) the createChatBubble function
 // pass the user input to the chatbubble creation
@@ -84,22 +46,7 @@ getUserChats();
         })
     })();
 
-function createChatBubbles(dataObj) {
-    let messageArr = dataObj.data;
-    messageArr.forEach(chat => createChatBubble(chat))
-}
 
-function createPreviewBoxes(dataObj){
-    let chatsArr = dataObj.data;
-    chatsArr.forEach(chat => createPreviewBox(chat))
-}
-
-function previewBoxClick(event) {
-    let chatID = event.target.dataset.chat_id;
-    fetch('http://demo.codingnomads.co:8080/muttsapp/users/3/chats/' + chatID)
-        .then(ressponse => ressponse.json())
-        .then(dataObj => createChatBubbles(dataObj))
-}
 
 function createPreviewBox() {
 
@@ -187,7 +134,7 @@ function createPreviewBox() {
 
     // set the innerHTML of dateP equal to the name "3/25/20"
 
-    dateP.innerHTML = new Date(dataObj.date_sent).toLocaleDateString;
+    dateP.innerHTML = new Date(dataObj.date_sent).toLocaleDateString();
 
     // append dateP to the dateWrap
 
@@ -222,68 +169,5 @@ function createPreviewBox() {
 /// put together from idea to creation 
 // 
 
-function createPreviewBox(chat) {
-    //Make Wrapper Div and attach Click listener
-    let previewBox = document.createElement('div');
-    previewBox.classList.add('message-preview-box');
-    previewBox.setAttribute('data-chat_id', chat.sender_id)
-    previewBox.addEventListener('click', previewBoxClick)
 
-    // make Image wrap, image element, and append to previewWrap
-    let imageWrap = document.createElement('div');
-    imageWrap.setAttribute('data-chat_id', chat.sender_id)
-    imageWrap.classList.add('img-wrap');
-    let image = document.createElement('img');
-    image.setAttribute('data-chat_id', chat.sender_id)
-    image.setAttribute('src', chat.photo_url)
-    image.setAttribute('alt', 'default icon')
-    imageWrap.appendChild(image)
-    previewBox.appendChild(imageWrap)
 
-    //Make text wrap and paragraphs with chat name and last message, and append them to the previewWrap 
-    let textWrap = document.createElement('div')
-    textWrap.setAttribute('data-chat_id', chat.sender_id)
-    textWrap.classList.add("message-text-wrap")
-    let p1 = document.createElement('p')
-    p1.setAttribute('data-chat_id', chat.sender_id)
-    p1.innerHTML = chat.chat_name;
-    let p2 = document.createElement('p');
-    p2.setAttribute('data-chat_id', chat.sender_id)
-    p2.innerHTML = chat.last_message
-    textWrap.appendChild(p1)
-    textWrap.appendChild(p2)
-    previewBox.appendChild(textWrap)
-
-    //Make date wrap, paragraph with date, and append them to the preview Wrap
-    let dateWrap = document.createElement("div");
-    dateWrap.setAttribute('data-chat_id', chat.sender_id);
-    dateWrap.classList.add("date-wrap");
-    let dateP = document.createElement('p')
-    dateP.setAttribute('data-chat_id', chat.sender_id)
-    dateP.innerHTML = new Date(chat.date_sent).toLocaleDateString();
-    dateWrap.appendChild(dateP)
-    previewBox.appendChild(dateWrap)
-
-    //append all element we just create to the div with the id "message-wrapper" already on the page
-    let messageWrap = document.getElementById("message-wrapper")
-    messageWrap.appendChild(previewBox)
- }
-
-function newUser() {
-    let postData = {
-        first_name: "",
-        last_name: "",
-        username: "",
-        photo_url: ""
-    }
-    let postParams = {
-       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-       headers: {
-           'Content-Type': 'application/json; charset=UTF-8'
-       },
-       body: JSON.stringify(postData)
-    }
-    fetch('http://demo.codingnomads.co:8080/muttsapp/users/', postParams)
-        .then(res => res.json())
-        .then(res => console.log(res))
-};
