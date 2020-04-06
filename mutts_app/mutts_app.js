@@ -15,6 +15,7 @@ const createChatBubble = (msg) => {
     wrapper.prepend(chatBubble)
 }
 
+
 function createChatBubbles(dataObj) {
     document.getElementById('chat-bubble-wrapper').innerHTML=" ";
     let messageArr = dataObj.data;
@@ -101,6 +102,15 @@ function previewBoxClick(event) {
     fetch(baseUrl + "/" + userID + '/chats/' + senderID)
         .then(responsse => responsse.json())
         .then(dataObj => createChatBubbles(dataObj))
+
+
+    fetch(baseUrl + "/" + senderID)
+        .then(response => response.json())
+        .then(dataObj => {
+            console.log(dataObj)
+            document.getElementById('recipient').setAttribute('src', dataObj.data.photo_url);
+            document.querySelector('#header-number > p').innerHTML = dataObj.data.first_name + " " + dataObj.data.last_name;
+        })
     }
 
 let sendMessage = document.getElementById('send-message');
